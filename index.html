@@ -4,57 +4,91 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Socket.IO chat</title>
     <style>
-      body {
-        margin: 0;
-        padding-bottom: 3rem;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Helvetica, Arial, sans-serif;
-      }
-
-      #form {
-        background: rgba(0, 0, 0, 0.15);
-        padding: 0.25rem;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        height: 3rem;
-        box-sizing: border-box;
-        backdrop-filter: blur(10px);
-      }
-      #input {
-        border: none;
-        padding: 0 1rem;
-        flex-grow: 1;
-        border-radius: 2rem;
-        margin: 0.25rem;
-      }
-      #input:focus {
-        outline: none;
-      }
-      #form > button {
-        background: #333;
-        border: none;
-        padding: 0 1rem;
-        margin: 0.25rem;
-        border-radius: 3px;
-        outline: none;
-        color: #fff;
-      }
-
-      #messages {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-      #messages > li {
-        padding: 0.5rem 1rem;
-      }
-      #messages > li:nth-child(odd) {
-        background: #efefef;
-      }
-    </style>
+        body {
+          margin: 0;
+          padding-bottom: 3rem;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            Helvetica, Arial, sans-serif;
+          background-color: #f5f5f5;
+        }
+      
+        #form {
+          background: rgba(255, 255, 255, 0.9);
+          padding: 0.5rem 1rem;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          display: flex;
+          align-items: center;
+          height: 4rem;
+          box-sizing: border-box;
+          backdrop-filter: blur(10px);
+          border-top: 1px solid #ddd;
+        }
+      
+        #input {
+          border: 1px solid #ddd;
+          padding: 0 1rem;
+          flex-grow: 1;
+          border-radius: 20px;
+          margin: 0.25rem;
+          height: 2.5rem;
+          font-size: 1rem;
+          transition: border-color 0.3s;
+        }
+      
+        #input:focus {
+          outline: none;
+          border-color: #007bff;
+        }
+      
+        #form > button {
+          background: #007bff;
+          border: none;
+          padding: 0 1.5rem;
+          margin: 0.25rem;
+          border-radius: 20px;
+          outline: none;
+          color: #fff;
+          cursor: pointer;
+          font-size: 1rem;
+          height: 2.5rem;
+          transition: background-color 0.3s, transform 0.3s;
+        }
+      
+        #form > button:hover {
+          background-color: #0056b3;
+          transform: scale(1.05);
+        }
+      
+        #messages {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          max-width: 800px;
+          margin: auto;
+          padding-bottom: 5rem;
+        }
+      
+        #messages > li {
+          padding: 0.75rem 1.5rem;
+          margin: 0.5rem 0;
+          background: #fff;
+          border-radius: 10px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          transition: background-color 0.3s;
+        }
+      
+        #messages > li:nth-child(odd) {
+          background: #f9f9f9;
+        }
+      
+        #messages > li:hover {
+          background-color: #f1f1f1;
+        }
+      </style>
+      
   </head>
   <body>
     <ul id="messages"></ul>
